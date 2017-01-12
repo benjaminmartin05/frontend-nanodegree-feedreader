@@ -86,9 +86,8 @@ $(function() {
         });
         //we add done here to the function and then call it so the tester knows this
         //is the async function we're testing
-        it('.feed should contain at least one .entry element', function(done) {
-            expect($('.feed .entry')).not.toBe(undefined);
-            done();
+        it('.feed should contain at least one .entry element', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
     /* Wrote a new test suite named "New Feed Selection"*/
@@ -111,13 +110,12 @@ $(function() {
                     console.log(nextFeed);
                     //done is like telling everyone dinner is served
                     done();
-                })
-            })
+                });
+            });
         });
 
-        it('ensure feed content changes', function(done) {
+        it('ensure feed content changes', function() {
             expect(nextFeed).not.toBe(initialFeed);
-            done();
         });
     });
 
